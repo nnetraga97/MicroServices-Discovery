@@ -1,5 +1,6 @@
 package com.nikhil.customer;
 
+import com.nikhil.amqp.RabbitMQMessageProducer;
 import com.nikhil.clients.fraud.FraudCheckResponse;
 import com.nikhil.clients.fraud.FraudClient;
 import com.nikhil.clients.notification.NotificationClient;
@@ -16,7 +17,7 @@ public class CustomerService {
 
     private final CustomerRepository customerRepository;
     private final FraudClient fraudClient;
-    private final NotificationClient notificationClient;
+    private final RabbitMQMessageProducer rabbitMQMessageProducer;
 
     public void registerCustomer(CustomerRegistrationRequest request) {
         Customer customer = Customer.builder()
@@ -36,8 +37,12 @@ public class CustomerService {
                 (customer.getId(),
                         customer.getEmail(),
                         "Hello!! Welcome to the System");
-        log.info("noticification request: {}",tosend);
-        notificationClient.sendNotification(tosend);
+        rabbitMQMessageProducer.publish(
+                tosend,
+                "internal.exchange",
+                "internal.notification.routing-key"
+        );
+
 
     }
 
