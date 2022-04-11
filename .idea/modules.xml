@@ -3,10 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/MicroServices-Discovery.iml" filepath="$PROJECT_DIR$/.idea/MicroServices-Discovery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservices/clients/clients.iml" filepath="$PROJECT_DIR$/microservices/clients/clients.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservices/customer/customer.iml" filepath="$PROJECT_DIR$/microservices/customer/customer.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservices/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/microservices/eureka-server/eureka-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservices/fraud/fraud.iml" filepath="$PROJECT_DIR$/microservices/fraud/fraud.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservices/microservices.iml" filepath="$PROJECT_DIR$/microservices/microservices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservices/notification/notification.iml" filepath="$PROJECT_DIR$/microservices/notification/notification.iml" />
     </modules>
   </component>
 </project>
