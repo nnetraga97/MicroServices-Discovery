@@ -12,6 +12,7 @@
         <module name="clients" />
         <module name="fraud" />
         <module name="amqp" />
+        <module name="k8s" />
         <module name="eureka-server" />
         <module name="customer" />
       </profile>
@@ -23,6 +24,7 @@
       <module name="customer" target="17" />
       <module name="eureka-server" target="17" />
       <module name="fraud" target="17" />
+      <module name="k8s" target="17" />
       <module name="microservices" target="17" />
       <module name="notification" target="17" />
     </bytecodeTargetLevel>

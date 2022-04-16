@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: pgadmin
+spec:
+  serviceName: pgadmin-service
+  podManagementPolicy: Parallel
+  replicas: 1
+  updateStrategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: pgadmin
+  template:
+    metadata:
+      labels:
+        app: pgadmin
+    spec:
+      volumes:
+        - name: pgadmin
+          persistentVolumeClaim:
+            claimName: pgadmin-pc-volume-claim
+      containers:
+        - name: pgadmin
+          image: dpage/pgadmin4
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: pgadmin-data
+              mountPath: "/var/lib/pgadmin/data"
+          env:
+            - name: PGADMIN_DEFAULT_EMAIL
+              value: pgadmin4@pgadmin.org
+            - name: PGADMIN_DEFAULT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: pgadmin
+                  key: pgadmin-password
+  volumeClaimTemplates:
+    - metadata:
+        name: pgadmin-data
+      spec:
+        accessModes: [ "ReadWriteOnce" ]
+        resources:
+          requests:
+            storage: 3Gi
