@@ -17,3 +17,12 @@ Architecure  -
 6) Datbase  - postgres
 7) Cluster - minikube
 8) SourceControl - Git(here)
+
+Apigatewat and server made redundant by Kubernetes, but in prod you would have own custom load balancer.
+
+
+TO DO - 
+
+Security LOL
+Encryption LOL
+This actually has a front-end part but I gave up on learning Flutter
