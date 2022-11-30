@@ -23,6 +23,6 @@ Apigatewat and server made redundant by Kubernetes, but in prod you would have o
 
 TO DO - 
 
-Security LOL
-Encryption LOL
+Security
+Encryption
 This actually has a front-end part but I gave up on learning Flutter
